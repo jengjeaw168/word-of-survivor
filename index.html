@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word of Survivor - IT Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen">
+            <h1>Word of Survivor</h1>
+            <p>เอาชีวิตรอดจากโลกไอทีด้วยคำศัพท์!</p>
+            <div class="map-selection">
+                <h2>เลือกเซิร์ฟเวอร์ด่าน</h2>
+                <div class="maps">
+                    <button class="map-btn" data-map="hardwareBase">
+                        🖥️ Hardware Base
+                        <br><span class="high-score" id="score-hardwareBase">High Score: 0</span>
+                    </button>
+                    <button class="map-btn" data-map="codingMatrix">
+                        💻 Coding Matrix
+                        <br><span class="high-score" id="score-codingMatrix">High Score: 0</span>
+                    </button>
+                    <button class="map-btn" data-map="cyberCloud">
+                        ☁️ Cyber Cloud
+                        <br><span class="high-score" id="score-cyberCloud">High Score: 0</span>
+                    </button>
+                </div>
+            </div>
+            <div class="instructions">
+                <h3>วิธีเล่น</h3>
+                <p>กำจัดมอนสเตอร์ไอที 10 ตัวเพื่อผ่านด่าน ถ้าตอบผิดจะเสียหัวใจ</p>
+                <ul>
+                    <li>ด่าน 1-3: ง่าย (+500 คะแนน)</li>
+                    <li>ด่าน 4-7: ปานกลาง (+1000 คะแนน)</li>
+                    <li>ด่าน 8-10: ยาก (+2000 คะแนน)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="stat-badge score-badge">
+                    <span class="icon">🪙</span>
+                    <span id="score-display">0</span>
+                </div>
+                <div class="stat-badge lives-badge">
+                    <span class="icon">❤️</span>
+                    <span id="hearts-display">3</span>
+                </div>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+
+            <!-- Word Display -->
+            <div class="word-area">
+                <h1 id="word-display">Word</h1>
+                <div id="phase-display">Phase: ง่าย</div>
+            </div>
+            
+            <!-- Battle Area -->
+            <div class="battle-area">
+                <div class="scenery">
+                    <!-- background elements -->
+                </div>
+                <div id="character">🧑‍💻</div>
+                <div id="enemy">👾</div>
+                <div class="ground">
+                    <div class="ground-texture"></div>
+                </div>
+            </div>
+
+            <!-- Options (Bottom) -->
+            <div class="options-area">
+                <button id="option-1" class="option-btn">Option 1</button>
+                <button id="option-2" class="option-btn">Option 2</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen hidden">
+            <h1 id="result-title">System Failure</h1>
+            <p id="result-message">การเชื่อมต่อล้มเหลว...</p>
+            <h2 id="final-score">Score: 0</h2>
+            <button id="back-to-menu-btn">กลับสู่เมนูหลัก</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
