@@ -156,16 +156,17 @@ h1 {
 
 #main-menu p.subtitle {
     font-family: var(--font-arcade);
-    font-size: 1rem;
-    letter-spacing: 1.5px;
+    font-size: 0.92rem;
+    letter-spacing: 1px;
     color: #00f0ff;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 2px 2px 0 #000;
     margin-bottom: 22px;
     background: rgba(0, 15, 30, 0.6);
     border: 2px solid rgba(0, 240, 255, 0.4);
-    padding: 6px 18px;
+    padding: 6px 16px;
     border-radius: 20px;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .map-selection {
