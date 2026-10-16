@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Word of Survivor - Arcade IT English Survival</title>
-    <!-- Google Fonts: Arcade Retro & Clean Thai Display -->
+    <!-- Google Fonts: Arcade Retro Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Luckiest+Guy&family=Prompt:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Luckiest+Guy&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,34 +20,34 @@
             <p class="subtitle">⚡ IT VOCABULARY SURVIVAL BATTLE ⚡</p>
             
             <div class="map-selection">
-                <h2>CHOOSE YOUR SERVER (หมวดละ 10 ด่าน)</h2>
+                <h2>CHOOSE YOUR SERVER (10 STEPS EACH)</h2>
                 <div class="maps">
                     <button class="map-btn" data-map="hardwareBase">
-                        🖥️ HARDWARE BASE (10 ข้อ)
+                        🖥️ HARDWARE BASE (10 Steps)
                         <span class="high-score" id="score-hardwareBase">High Score: 0</span>
                     </button>
                     <button class="map-btn" data-map="codingMatrix">
-                        💻 CODING MATRIX (10 ข้อ)
+                        💻 CODING MATRIX (10 Steps)
                         <span class="high-score" id="score-codingMatrix">High Score: 0</span>
                     </button>
                     <button class="map-btn" data-map="cyberCloud">
-                        ☁️ CYBER CLOUD (10 ข้อ)
+                        ☁️ CYBER CLOUD (10 Steps)
                         <span class="high-score" id="score-cyberCloud">High Score: 0</span>
                     </button>
                 </div>
             </div>
 
             <button id="open-notebook-btn" class="map-btn notebook-btn">
-                📖 สมุดสะสมคำศัพท์ไอที (VOCAB NOTEBOOK)
+                📖 VOCABULARY NOTEBOOK
             </button>
             
             <div class="instructions">
-                <h3>💡 กติกาการเอาชีวิตรอด 10 ขั้น (3 TIERS)</h3>
-                <p>แต่ละเซิร์ฟเวอร์มี 10 คำศัพท์ สุ่มไม่ซ้ำตลอดการเล่น:</p>
+                <h3>💡 SURVIVAL RULES (3 TIERS)</h3>
+                <p>10 contextual IT challenges per server with zero duplicates:</p>
                 <ul>
-                    <li>🌱 <b>ขั้น 1 - 3 (ง่าย):</b> ศัพท์พื้นฐาน (+500 PTS, ตอบผิดตก 1 ขั้น)</li>
-                    <li>⚡ <b>ขั้น 4 - 7 (ปานกลาง):</b> ประโยคการทำงานจริง (+1,000 PTS, ตอบผิดตก 1 ขั้น)</li>
-                    <li>🔥 <b>ขั้น 8 - 10 (ยาก/บอส):</b> คำนิยามเทคนิคขั้นสูง (+2,000 PTS, ตอบผิดตก 2 ขั้น)</li>
+                    <li>🌱 <b>Steps 1 - 3 (Easy):</b> Core Vocabulary (+500 PTS, -1 Step on error)</li>
+                    <li>⚡ <b>Steps 4 - 7 (Medium):</b> Real IT Scenarios (+1,000 PTS, -1 Step on error)</li>
+                    <li>🔥 <b>Steps 8 - 10 (Hard):</b> Advanced Tech Concepts (+2,000 PTS, -2 Steps on error)</li>
                 </ul>
             </div>
         </div>
@@ -68,9 +68,6 @@
                         <span class="icon">❤️</span>
                         <span id="hearts-display">3</span>
                     </div>
-                    <button id="sound-toggle-btn" class="stat-badge" style="background:#fbc02d; border:3px solid #000; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 3px 0 #b26a00; font-size:1rem;" title="เปิด/ปิดเสียงเอฟเฟกต์">
-                        🔊
-                    </button>
                 </div>
                 
                 <div class="progress-bar-container">
@@ -80,16 +77,11 @@
                 <!-- Mission Dialogue / Question HUD -->
                 <div class="context-card">
                     <div class="context-header">
-                        <span id="phase-display">Tier 1: ง่าย</span>
-                        <button id="listen-sentence-btn" class="tts-btn" title="ฟังการออกเสียงประโยค">
-                            🔊 ฟังประโยค
-                        </button>
+                        <span id="phase-display">Step 1/10 (Easy +500)</span>
                     </div>
                     <div id="sentence-display" class="sentence-box">
                         Loading challenge...
                     </div>
-                    <button id="hint-toggle-btn" class="hint-toggle-btn">💡 ดูคำแปลไทย / คำใบ้</button>
-                    <div id="sentence-hint">คำแปลประโยคสถานการณ์</div>
                 </div>
             </div>
             
@@ -110,15 +102,13 @@
                 </div>
             </div>
 
-            <!-- Arcade Green Choice Buttons (Replicating Image 2) -->
+            <!-- Arcade Green Choice Buttons (Pure English Words matching Image 2) -->
             <div class="options-area">
                 <button id="option-1" class="option-btn">
                     <span class="option-main" id="opt-main-1">Option 1</span>
-                    <span class="option-sub" id="opt-sub-1">คำแปลไทย 1</span>
                 </button>
                 <button id="option-2" class="option-btn">
                     <span class="option-main" id="opt-main-2">Option 2</span>
-                    <span class="option-sub" id="opt-sub-2">คำแปลไทย 2</span>
                 </button>
             </div>
         </div>
@@ -126,44 +116,41 @@
         <!-- Instant Knowledge Capsule Modal -->
         <div id="knowledge-modal" class="hidden">
             <div class="capsule-card">
-                <div id="capsule-badge" class="capsule-badge badge-correct">✅ ยอดเยี่ยม! (Correct)</div>
+                <div id="capsule-badge" class="capsule-badge badge-correct">CORRECT!</div>
                 <div class="capsule-word-row">
                     <div>
                         <div id="capsule-word" class="capsule-word">Word</div>
                         <div id="capsule-phonetic" class="capsule-phonetic">/phonetic/ • noun</div>
                     </div>
-                    <button id="capsule-speak-btn" class="tts-btn" style="padding: 8px 14px; font-size: 1rem;">
-                        🔊 ฟังเสียง
-                    </button>
                 </div>
                 <div class="capsule-content">
                     <div class="capsule-sentence">
-                        <span style="font-size:0.8rem; color:#80deea; display:block; font-weight:800;">📝 ตัวอย่างประโยคบริบทจริง:</span>
+                        <span style="font-size:0.8rem; color:#80deea; display:block; font-weight:800;">📝 Context Example:</span>
                         <span id="capsule-sentence-text">Sentence example</span>
                     </div>
                     <div class="capsule-collocation">
-                        <span style="font-size:0.8rem; color:#fff59d; display:block; font-weight:800;">⚡ วลีที่พบบ่อย (Collocation):</span>
+                        <span style="font-size:0.8rem; color:#fff59d; display:block; font-weight:800;">⚡ Common Collocation:</span>
                         <span id="capsule-collocation-text">Common phrases</span>
                     </div>
                     <div id="capsule-tip">
-                        คำอธิบายการใช้งานจริง
+                        Technical definition
                     </div>
                 </div>
-                <button id="capsule-continue-btn" class="capsule-continue-btn">ลุยด่านต่อไป ➡️</button>
+                <button id="capsule-continue-btn" class="capsule-continue-btn">NEXT STEP ➡️</button>
             </div>
         </div>
 
         <!-- Vocab Notebook Screen -->
         <div id="notebook-screen" class="screen hidden">
             <div class="notebook-header">
-                <h2>📖 สมุดคำศัพท์ไอที (30 คำ)</h2>
+                <h2>📖 VOCAB NOTEBOOK</h2>
                 <button id="close-notebook-btn" class="close-btn">✕</button>
             </div>
             <div class="notebook-filter">
-                <button class="filter-btn active" data-filter="all">ทั้งหมด (30 ข้อ)</button>
-                <button class="filter-btn" data-filter="hardwareBase">🖥️ Hardware (10)</button>
-                <button class="filter-btn" data-filter="codingMatrix">💻 Coding (10)</button>
-                <button class="filter-btn" data-filter="cyberCloud">☁️ Cyber (10)</button>
+                <button class="filter-btn active" data-filter="all">ALL (30)</button>
+                <button class="filter-btn" data-filter="hardwareBase">🖥️ HARDWARE (10)</button>
+                <button class="filter-btn" data-filter="codingMatrix">💻 CODING (10)</button>
+                <button class="filter-btn" data-filter="cyberCloud">☁️ CYBER (10)</button>
             </div>
             <div id="vocab-list" class="vocab-list">
                 <!-- Dynamically generated vocab cards -->
@@ -173,14 +160,14 @@
         <!-- Result Screen -->
         <div id="result-screen" class="screen hidden">
             <h1 id="result-title">STAGE CLEARED!</h1>
-            <p id="result-message">ยอดเยี่ยม! คุณเอาชีวิตรอดและฝึกคำศัพท์สำเร็จ</p>
+            <p id="result-message">Congratulations! You survived all 10 steps successfully.</p>
             <h2 id="final-score">SCORE: 0</h2>
             <div class="result-actions">
                 <button id="result-notebook-btn" class="map-btn notebook-btn" style="margin-top:0;">
-                    📖 ทบทวนคำศัพท์ที่เจอในด่านนี้
+                    📖 REVIEW VOCABULARY
                 </button>
                 <button id="back-to-menu-btn" class="map-btn">
-                    🏠 กลับสู่เมนูหลัก
+                    🏠 BACK TO MENU
                 </button>
             </div>
         </div>

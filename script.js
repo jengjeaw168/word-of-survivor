@@ -1,6 +1,6 @@
 /* ==========================================================================
    WORD OF SURVIVOR - ARCADE RETRO SURVIVAL EDITION
-   Complete Game Engine & Contextual IT Database (10 per map = 30 total)
+   Pure English Contextual IT Database & Animation Engine (No Audio)
    ========================================================================== */
 
 // --- 1. SVG CHARACTER ASSETS (Custom 2D Arcade Illustrations) ---
@@ -142,548 +142,314 @@ const TROJAN_PHANTOM_SVG = `
 </svg>
 `;
 
-// --- 2. ARCADE SYNTHESIZER AUDIO ENGINE (Zero External Downloads) ---
-const AudioEngine = {
-    ctx: null,
-    muted: false,
-    init() {
-        if (!this.ctx) {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (AudioContext) this.ctx = new AudioContext();
-        }
-        if (this.ctx && this.ctx.state === 'suspended') {
-            this.ctx.resume();
-        }
-    },
-    toggleMute() {
-        this.muted = !this.muted;
-        return this.muted;
-    },
-    playLaser() {
-        if (this.muted) return;
-        this.init();
-        if (!this.ctx) return;
-        const now = this.ctx.currentTime;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(880, now);
-        osc.frequency.exponentialRampToValueAtTime(110, now + 0.16);
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.16);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.16);
-    },
-    playHit() {
-        if (this.muted) return;
-        this.init();
-        if (!this.ctx) return;
-        const now = this.ctx.currentTime;
-        const bufferSize = Math.floor(this.ctx.sampleRate * 0.14);
-        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
-        const data = buffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-            data[i] = Math.random() * 2 - 1;
-        }
-        const noise = this.ctx.createBufferSource();
-        noise.buffer = buffer;
-        const filter = this.ctx.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(600, now);
-        filter.frequency.exponentialRampToValueAtTime(90, now + 0.14);
-        const gain = this.ctx.createGain();
-        gain.gain.setValueAtTime(0.3, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.14);
-        noise.connect(filter);
-        filter.connect(gain);
-        gain.connect(this.ctx.destination);
-        noise.start(now);
-    },
-    playError() {
-        if (this.muted) return;
-        this.init();
-        if (!this.ctx) return;
-        const now = this.ctx.currentTime;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(160, now);
-        osc.frequency.setValueAtTime(110, now + 0.1);
-        gain.gain.setValueAtTime(0.25, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.25);
-    },
-    playCoin() {
-        if (this.muted) return;
-        this.init();
-        if (!this.ctx) return;
-        const now = this.ctx.currentTime;
-        const osc1 = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(987.77, now);
-        osc1.frequency.setValueAtTime(1318.51, now + 0.08);
-        gain.gain.setValueAtTime(0.22, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
-        osc1.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc1.start(now);
-        osc1.stop(now + 0.35);
-    },
-    playFanfare() {
-        if (this.muted) return;
-        this.init();
-        if (!this.ctx) return;
-        const notes = [523.25, 659.25, 783.99, 1046.50];
-        notes.forEach((freq, idx) => {
-            const now = this.ctx.currentTime + idx * 0.1;
-            const osc = this.ctx.createOscillator();
-            const gain = this.ctx.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(freq, now);
-            gain.gain.setValueAtTime(0.2, now);
-            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.28);
-            osc.connect(gain);
-            gain.connect(this.ctx.destination);
-            osc.start(now);
-            osc.stop(now + 0.3);
-        });
-    }
-};
-
-// --- 3. CURATED 10-QUESTION CONTEXTUAL IT DATABASE (30 Total) ---
+// --- 2. CURATED 10-QUESTION PURE ENGLISH IT DATABASE (30 Total) ---
 const vocabularyData = {
     hardwareBase: {
-        // Steps 1-3 (3 Questions)
+        // Steps 1-3 (Easy)
         easy: [
             {
                 word: "Mouse",
                 phonetic: "/maʊs/ (n.)",
                 sentence: "Move the ______ to point and click items on the screen.",
-                sentenceAudio: "Move the mouse to point and click items on the screen.",
-                hint: "ขยับ...เพื่อชี้และคลิกสิ่งต่างๆ บนหน้าจอคอมพิวเตอร์",
                 collocation: "wireless mouse, click the mouse, mouse pointer",
                 correctMain: "Mouse",
-                correctSub: "เมาส์ (อุปกรณ์ชี้ตำแหน่ง)",
                 wrongMain: "Keyboard",
-                wrongSub: "คีย์บอร์ด (แป้นพิมพ์)",
-                tip: "Mouse เป็นอุปกรณ์ Input พื้นฐาน ใช้เลื่อนเคอร์เซอร์และคลิกเลือกเมนู"
+                tip: "A primary hand-held pointing device used to manipulate screen GUI objects."
             },
             {
                 word: "Screen",
                 phonetic: "/skriːn/ (n.)",
                 sentence: "Look at the ______ to view your open windows and documents.",
-                sentenceAudio: "Look at the screen to view your open windows and documents.",
-                hint: "มองดูที่...เพื่อรับชมหน้าต่างและเอกสารที่เปิดอยู่",
                 collocation: "touch screen, computer screen, split screen",
                 correctMain: "Screen",
-                correctSub: "หน้าจอแสดงผล",
                 wrongMain: "Speaker",
-                wrongSub: "ลำโพงส่งสัญญาณเสียง",
-                tip: "Screen คือจอแสดงผลหลักที่ส่งสัญญาณภาพให้ผู้ใช้งานมองเห็น"
+                tip: "The visual display surface of a monitor that presents graphics and data."
             },
             {
                 word: "Cable",
                 phonetic: "/ˈkeɪ.bəl/ (n.)",
                 sentence: "Connect the power ______ from the wall socket to the PC.",
-                sentenceAudio: "Connect the power cable from the wall socket to the PC.",
-                hint: "ต่อ...จ่ายพลังงานไฟฟ้าจากเต้ารับเข้าสู่ตัวเครื่องคอมพิวเตอร์",
                 collocation: "power cable, HDMI cable, network cable",
                 correctMain: "Cable",
-                correctSub: "สายสัญญาณ / สายไฟ",
                 wrongMain: "Port",
-                wrongSub: "พอร์ตช่องเสียบ",
-                tip: "Cable คือสายนำสัญญาณหรือสายไฟ มักใช้คู่กับกริยา connect หรือ plug in"
+                tip: "An insulated wire or bundle of optical fibers transmitting electricity or data."
             }
         ],
-        // Steps 4-7 (4 Questions)
+        // Steps 4-7 (Medium)
         medium: [
             {
                 word: "Server",
                 phonetic: "/ˈsɜː.vər/ (n.)",
                 sentence: "The web ______ handles requests from thousands of users at once.",
-                sentenceAudio: "The web server handles requests from thousands of users at once.",
-                hint: "เครื่อง...คอยรองรับคำขอใช้งานจากผู้ใช้นับพันคนพร้อมกัน",
                 collocation: "cloud server, web server, server down",
                 correctMain: "Server",
-                correctSub: "เครื่องแม่ข่ายเซิร์ฟเวอร์",
                 wrongMain: "Router",
-                wrongSub: "เราเตอร์กระจายสัญญาณ",
-                tip: "Server ทำหน้าที่ให้บริการข้อมูลและทรัพยากรแก่เครื่องลูกข่าย (Clients)"
+                tip: "A centralized computer system providing data, resources, and services to clients."
             },
             {
                 word: "Router",
                 phonetic: "/ˈruː.tər/ (n.)",
                 sentence: "Restart the Wi-Fi ______ if your office internet is not working.",
-                sentenceAudio: "Restart the Wi-Fi router if your office internet is not working.",
-                hint: "ลองรีสตาร์ทเครื่อง...หากสัญญาณอินเทอร์เน็ตที่ออฟฟิศใช้งานไม่ได้",
                 collocation: "wireless router, configure router, restart router",
                 correctMain: "Router",
-                correctSub: "เราเตอร์กระจายสัญญาณเครือข่าย",
                 wrongMain: "Printer",
-                wrongSub: "เครื่องพิมพ์เอกสาร",
-                tip: "Router คืออุปกรณ์เชื่อมต่อและจัดเส้นทางรับส่งข้อมูลในระบบอินเทอร์เน็ต"
+                tip: "A networking device that forwards data packets between computer networks."
             },
             {
                 word: "Storage",
                 phonetic: "/ˈstɔː.rɪdʒ/ (n.)",
                 sentence: "You need more disk ______ before downloading large video files.",
-                sentenceAudio: "You need more disk storage before downloading large video files.",
-                hint: "คุณต้องเพิ่มพื้นที่...ในดิสก์ก่อนจะดาวน์โหลดไฟล์วิดีโอขนาดใหญ่",
                 collocation: "storage capacity, cloud storage, external storage",
                 correctMain: "Storage",
-                correctSub: "พื้นที่จัดเก็บข้อมูลถาวร",
                 wrongMain: "Memory",
-                wrongSub: "หน่วยความจำชั่วคราว (RAM)",
-                tip: "Storage คือพื้นที่เก็บไฟล์แบบถาวร (เช่น SSD/HDD) ต่างจาก RAM ที่เก็บชั่วคราว"
+                tip: "Non-volatile computer media (SSD/HDD) retaining digital files permanently."
             },
             {
                 word: "Memory",
                 phonetic: "/ˈmem.ər.i/ (n.)",
                 sentence: "Upgrading your computer's RAM ______ will speed up multitasking performance.",
-                sentenceAudio: "Upgrading your computer's RAM memory will speed up multitasking performance.",
-                hint: "การอัปเกรด...แรมช่วยให้เปิดหลายโปรแกรมพร้อมกันได้ไหลลื่นยิ่งขึ้น",
                 collocation: "RAM memory, memory capacity, low memory warning",
                 correctMain: "Memory",
-                correctSub: "หน่วยความจำหลัก (RAM)",
                 wrongMain: "Hard Drive",
-                wrongSub: "ฮาร์ดไดรฟ์บันทึกข้อมูล",
-                tip: "RAM คือหน่วยความจำความเร็วสูงที่ส่งต่อข้อมูลให้ CPU ใช้งานแบบเรียลไทม์"
+                tip: "High-speed volatile RAM storing temporary data actively processed by CPU."
             }
         ],
-        // Steps 8-10 (3 Questions)
+        // Steps 8-10 (Hard)
         hard: [
             {
                 word: "Motherboard",
                 phonetic: "/ˈmʌð.ə.bɔːd/ (n.)",
                 sentence: "The CPU and RAM chips are mounted directly onto the main ______.",
-                sentenceAudio: "The CPU and RAM chips are mounted directly onto the main motherboard.",
-                hint: "ชิปประมวลผลซีพียูและแรมถูกติดตั้งอยู่บน...หลักของคอมพิวเตอร์",
                 collocation: "ATX motherboard, motherboard chipset, circuit board",
                 correctMain: "Motherboard",
-                correctSub: "เมนบอร์ด (แผงวงจรหลัก)",
                 wrongMain: "Graphics Card",
-                wrongSub: "การ์ดจอแสดงผล",
-                tip: "Motherboard เปรียบเหมือนกระดูกสันหลังที่เชื่อมต่อทุกชิ้นส่วนเข้าหากัน"
+                tip: "The main printed circuit board (PCB) connecting all core hardware components."
             },
             {
                 word: "Bandwidth",
                 phonetic: "/ˈbænd.wɪtθ/ (n.)",
                 sentence: "Streaming 4K video requires high internet ______ to avoid stuttering.",
-                sentenceAudio: "Streaming 4K video requires high internet bandwidth to avoid stuttering.",
-                hint: "การสตรีมวิดีโอความละเอียด 4K ต้องใช้...อินเทอร์เน็ตที่กว้างพอเพื่อไม่ให้กระตุก",
                 collocation: "high bandwidth, bandwidth limit, consume bandwidth",
                 correctMain: "Bandwidth",
-                correctSub: "ความกว้างช่องสัญญาณอินเทอร์เน็ต",
                 wrongMain: "Resolution",
-                wrongSub: "ความละเอียดของจอภาพ",
-                tip: "Bandwidth คือปริมาณความจุข้อมูลสูงสุดที่สามารถถ่ายโอนผ่านเครือข่ายต่อวินาที"
+                tip: "The maximum capacity and data transfer rate across a network connection per second."
             },
             {
                 word: "Latency",
                 phonetic: "/ˈleɪ.tən.si/ (n.)",
                 sentence: "Online competitive gamers demand low network ______ for instant response.",
-                sentenceAudio: "Online competitive gamers demand low network latency for instant response.",
-                hint: "นักกีฬาอีสปอร์ตต้องการค่าความ...ของเครือข่ายที่ต่ำมากเพื่อให้ตอบสนองได้ทันที",
                 collocation: "low latency, high latency, latency delay",
                 correctMain: "Latency",
-                correctSub: "ความหน่วง / ดีเลย์ของสัญญาณ (Ping)",
                 wrongMain: "Frequency",
-                wrongSub: "ความถี่ของสัญญาณวิทยุ",
-                tip: "Latency (หรือ Ping) คือระยะเวลาที่ข้อมูลใช้เดินทางจากต้นทางไปยังปลายทาง"
+                tip: "The time delay (ping) between sending a network request and receiving a response."
             }
         ]
     },
     codingMatrix: {
-        // Steps 1-3 (3 Questions)
+        // Steps 1-3 (Easy)
         easy: [
             {
                 word: "Bug",
                 phonetic: "/bʌɡ/ (n.)",
                 sentence: "The mobile app keeps crashing because there is a ______ in the code.",
-                sentenceAudio: "The mobile app keeps crashing because there is a bug in the code.",
-                hint: "แอปพลิเคชันมือถือเด้งปิดตัวเองเพราะมี...ข้อผิดพลาดในโค้ด",
                 collocation: "fix a bug, report a bug, software bug",
                 correctMain: "Bug",
-                correctSub: "บั๊ก (ข้อผิดพลาดในโค้ด)",
                 wrongMain: "Virus",
-                wrongSub: "ไวรัสคอมพิวเตอร์",
-                tip: "Bug คือจุดบกพร่องในชุดคำสั่ง มักใช้คู่กับกริยา fix หรือ debug"
+                tip: "An error, flaw, or fault in a software program that causes it to behave unexpectedly."
             },
             {
                 word: "Loop",
                 phonetic: "/luːp/ (n.)",
                 sentence: "Write a for ______ to repeat this calculation 100 times automatically.",
-                sentenceAudio: "Write a for loop to repeat this calculation 100 times automatically.",
-                hint: "เขียน for... เพื่อให้คำนวณซ้ำ 100 รอบโดยอัตโนมัติ",
                 collocation: "infinite loop, for loop, loop through",
                 correctMain: "Loop",
-                correctSub: "ลูป (คำสั่งวนซ้ำ)",
                 wrongMain: "Break",
-                wrongSub: "คำสั่งหยุดการทำงาน",
-                tip: "Loop ช่วยลดการเขียนโค้ดซ้ำซ้อนโดยให้คอมพิวเตอร์ทำคำสั่งซ้ำตามเงื่อนไข"
+                tip: "A control structure that repeats a block of instructions while a condition is met."
             },
             {
                 word: "Run",
                 phonetic: "/rʌn/ (v.)",
                 sentence: "Click the green play button to ______ your newly written program.",
-                sentenceAudio: "Click the green play button to run your newly written program.",
-                hint: "กดปุ่มเพลย์สีเขียวเพื่อสั่ง...โปรแกรมที่เพิ่งเขียนเสร็จ",
                 collocation: "run the script, run tests, run in background",
                 correctMain: "Run",
-                correctSub: "รัน (สั่งให้โปรแกรมทำงาน)",
                 wrongMain: "Delete",
-                wrongSub: "ลบไฟล์โปรแกรม",
-                tip: "Run เป็นกริยายอดฮิตในหมู่นักพัฒนา หมายถึงการสั่งให้โค้ดเริ่มประมวลผล"
+                tip: "To execute program instructions in the environment or runtime."
             }
         ],
-        // Steps 4-7 (4 Questions)
+        // Steps 4-7 (Medium)
         medium: [
             {
                 word: "Variable",
                 phonetic: "/ˈveə.ri.ə.bəl/ (n.)",
                 sentence: "Declare a new ______ named 'score' to track the player's points.",
-                sentenceAudio: "Declare a new variable named 'score' to track the player's points.",
-                hint: "ประกาศ...ตัวใหม่ชื่อว่า 'score' เพื่อคอยบันทึกคะแนนของผู้เล่น",
                 collocation: "declare variable, local variable, assign variable",
                 correctMain: "Variable",
-                correctSub: "ตัวแปร (สำหรับเก็บค่าข้อมูล)",
                 wrongMain: "Constant",
-                wrongSub: "ค่าคงที่ถาวรที่แก้ไม่ได้",
-                tip: "Variable คือกล่องเก็บข้อมูลที่สามารถเปลี่ยนแปลงค่าได้ตามการทำงานของโปรแกรม"
+                tip: "A named storage location containing a value that can be modified during execution."
             },
             {
                 word: "Function",
                 phonetic: "/ˈfʌŋk.ʃən/ (n.)",
                 sentence: "Create a reusable ______ that takes two numbers and returns their sum.",
-                sentenceAudio: "Create a reusable function that takes two numbers and returns their sum.",
-                hint: "สร้าง...ที่นำกลับมาใช้ซ้ำได้ โดยรับตัวเลขสองตัวแล้วคืนค่าผลรวม",
                 collocation: "call a function, define function, helper function",
                 correctMain: "Function",
-                correctSub: "ฟังก์ชัน (บล็อกคำสั่งทำงาน)",
                 wrongMain: "Comment",
-                wrongSub: "คอมเมนต์ข้อความอธิบาย",
-                tip: "Function ช่วยรวมชุดคำสั่งเป็นกลุ่มก้อนเพื่อเรียกใช้งานซ้ำได้ทุกเวลา"
+                tip: "A modular, reusable block of code designed to perform a specific computational task."
             },
             {
                 word: "Syntax",
                 phonetic: "/ˈsɪn.tæks/ (n.)",
                 sentence: "Forgetting to close the quotation mark caused a fatal ______ error.",
-                sentenceAudio: "Forgetting to close the quotation mark caused a fatal syntax error.",
-                hint: "การลืมปิดเครื่องหมายคำพูดทำให้เกิดข้อผิดพลาดทาง...ของภาษา",
                 collocation: "syntax error, valid syntax, syntax highlighting",
                 correctMain: "Syntax",
-                correctSub: "ไวยากรณ์และกฎของภาษาโค้ด",
                 wrongMain: "Logic",
-                wrongSub: "ตรรกะและกระบวนการคิด",
-                tip: "Syntax คือกฎเกณฑ์การเขียนคำสั่งของแต่ละภาษา หากเขียนผิดโปรแกรมจะรันไม่ผ่าน"
+                tip: "The set of structural rules defining valid combinations of symbols in a language."
             },
             {
                 word: "Compile",
                 phonetic: "/kəmˈpaɪl/ (v.)",
                 sentence: "You must ______ your C++ code into machine language before execution.",
-                sentenceAudio: "You must compile your C++ code into machine language before execution.",
-                hint: "คุณต้องทำการ...โค้ดภาษา C++ ให้กลายเป็นภาษาเครื่องก่อนสั่งทำงาน",
                 collocation: "compile code, compiler, compile time",
                 correctMain: "Compile",
-                correctSub: "คอมไพล์ (แปลงโค้ดเป็นภาษาเครื่อง)",
                 wrongMain: "Debug",
-                wrongSub: "ดีบัก (ค้นหาและแก้ไขข้อผิดพลาด)",
-                tip: "Compile คือกระบวนการแปลงโค้ดที่มนุษย์อ่านได้ให้เป็นเลขฐานสองที่คอมพิวเตอร์เข้าใจ"
+                tip: "To transform human-readable source code into machine-executable binary."
             }
         ],
-        // Steps 8-10 (3 Questions)
+        // Steps 8-10 (Hard)
         hard: [
             {
                 word: "Algorithm",
-                phonetic: "/ˈæl.ɡə.rɪ.ðəm/ (n.)",
+                phonetic: "/ˈæl.ɡə.rɪð.əm/ (n.)",
                 sentence: "Google's ranking ______ determines which websites appear first in search results.",
-                sentenceAudio: "Google's ranking algorithm determines which websites appear first in search results.",
-                hint: "...การจัดอันดับของกูเกิลเป็นตัวกำหนดว่าเว็บไหนจะแสดงขึ้นมาเป็นอันดับแรก",
                 collocation: "search algorithm, efficient algorithm, machine learning algorithm",
                 correctMain: "Algorithm",
-                correctSub: "อัลกอริทึม (ขั้นตอนวิธีคิดคำนวณ)",
                 wrongMain: "Database",
-                wrongSub: "ฐานข้อมูลจัดเก็บ",
-                tip: "Algorithm คือชุดขั้นตอนการแก้ปัญหาทางคณิตศาสตร์หรือตรรกะอย่างเป็นระบบ"
+                tip: "A finite step-by-step sequence of instructions to solve a computational problem."
             },
             {
                 word: "Deployment",
                 phonetic: "/dɪˈplɔɪ.mənt/ (n.)",
                 sentence: "Automated continuous ______ allows engineers to release updates daily.",
-                sentenceAudio: "Automated continuous deployment allows engineers to release updates daily.",
-                hint: "ระบบการ...อัตโนมัติช่วยให้วิศวกรสามารถปล่อยตัวอัปเดตขึ้นสู่ระบบจริงได้ทุกวัน",
                 collocation: "production deployment, deploy code, deployment pipeline",
                 correctMain: "Deployment",
-                correctSub: "การนำโค้ดขึ้นใช้งานจริงบนระบบ",
                 wrongMain: "Prototyping",
-                wrongSub: "การทำต้นแบบทดลอง",
-                tip: "Deployment คือขั้นตอนสุดท้ายในการนำซอฟต์แวร์ที่พัฒนาเสร็จไปเปิดให้ผู้ใช้งานจริงใช้"
+                tip: "The process of packaging, testing, and distributing software to production servers."
             },
             {
                 word: "Inheritance",
                 phonetic: "/ɪnˈher.ɪ.təns/ (n.)",
                 sentence: "In object-oriented programming, ______ allows a child class to reuse parent methods.",
-                sentenceAudio: "In object-oriented programming, inheritance allows a child class to reuse parent methods.",
-                hint: "ในการเขียนโปรแกรมเชิงวัตถุ ...ช่วยให้คลาสลูกดึงฟังก์ชันของคลาสแม่มาใช้ซ้ำได้",
                 collocation: "class inheritance, multiple inheritance, inherit properties",
                 correctMain: "Inheritance",
-                correctSub: "การสืบทอดคุณสมบัติ (OOP)",
                 wrongMain: "Encapsulation",
-                wrongSub: "การห่อหุ้มซ่อนข้อมูล",
-                tip: "Inheritance ช่วยลดความซ้ำซ้อนโดยให้คลาสใหม่ต่อยอดฟังก์ชันจากคลาสเดิมที่มีอยู่"
+                tip: "OOP mechanism allowing a subclass to acquire properties and methods of a parent class."
             }
         ]
     },
     cyberCloud: {
-        // Steps 1-3 (3 Questions)
+        // Steps 1-3 (Easy)
         easy: [
             {
                 word: "Password",
                 phonetic: "/ˈpɑːs.wɜːd/ (n.)",
                 sentence: "Create a strong ______ containing symbols, numbers, and capital letters.",
-                sentenceAudio: "Create a strong password containing symbols, numbers, and capital letters.",
-                hint: "สร้าง...ที่ปลอดภัยด้วยการผสมสัญลักษณ์ ตัวเลข และตัวพิมพ์ใหญ่",
                 collocation: "strong password, reset password, change password",
                 correctMain: "Password",
-                correctSub: "รหัสผ่านลับ",
                 wrongMain: "Username",
-                wrongSub: "ชื่อบัญชีผู้ใช้งาน",
-                tip: "Password ที่ดีควรมีความยาวอย่างน้อย 8-12 ตัวอักษรและไม่ใช้คำทั่วไป"
+                tip: "A secret string of characters used for user authentication and access control."
             },
             {
                 word: "Lock",
                 phonetic: "/lɒk/ (v.)",
                 sentence: "Always ______ your computer screen whenever you step away from your desk.",
-                sentenceAudio: "Always lock your computer screen whenever you step away from your desk.",
-                hint: "อย่าลืมกด...หน้าจอคอมพิวเตอร์เสมอเมื่อต้องลุกเดินออกจากโต๊ะทำงาน",
                 collocation: "lock the screen, lock account, screen lock",
                 correctMain: "Lock",
-                correctSub: "ล็อคหน้าจอเพื่อความปลอดภัย",
                 wrongMain: "Share",
-                wrongSub: "แชร์หน้าจอให้ผู้อื่น",
-                tip: "กดปุ่มคีย์ลัด Windows + L เพื่อ Lock หน้าจอได้อย่างรวดเร็วในชีวิตจริง"
+                tip: "Securing an active workstation session from unauthorized physical access (e.g. Win + L)."
             },
             {
                 word: "Cloud",
                 phonetic: "/klaʊd/ (n.)",
                 sentence: "Upload your backup files to the ______ so you can access them anywhere.",
-                sentenceAudio: "Upload your backup files to the cloud so you can access them anywhere.",
-                hint: "อัปโหลดไฟล์สำรองขึ้นสู่ระบบ...เพื่อให้เข้าถึงไฟล์ได้จากทุกที่ทั่วโลก",
                 collocation: "cloud storage, cloud computing, in the cloud",
                 correctMain: "Cloud",
-                correctSub: "ระบบคลาวด์ออนไลน์",
                 wrongMain: "Hard Disk",
-                wrongSub: "ฮาร์ดดิสก์ประจำเครื่อง",
-                tip: "Cloud คือบริการจัดเก็บข้อมูลและรันระบบผ่านเครือข่ายอินเทอร์เน็ตของเซิร์ฟเวอร์ทั่วโลก"
+                tip: "A network of remote internet servers hosting, managing, and processing data."
             }
         ],
-        // Steps 4-7 (4 Questions)
+        // Steps 4-7 (Medium)
         medium: [
             {
                 word: "Firewall",
                 phonetic: "/ˈfaɪə.wɔːl/ (n.)",
                 sentence: "The corporate ______ blocks unauthorized traffic and cyber attacks.",
-                sentenceAudio: "The corporate firewall blocks unauthorized traffic and cyber attacks.",
-                hint: "...ของบริษัททำหน้าที่ป้องกันและบล็อกการรับส่งข้อมูลที่น่าสงสัยจากการโจมตี",
                 collocation: "enable firewall, firewall rules, hardware firewall",
                 correctMain: "Firewall",
-                correctSub: "ไฟร์วอลล์ป้องกันเครือข่าย",
                 wrongMain: "Antivirus",
-                wrongSub: "โปรแกรมสแกนไวรัสในเครื่อง",
-                tip: "Firewall ทำหน้าที่เหมือนด่านตรวจคนเข้าเมืองของเครือข่าย คอยกรองข้อมูลเข้า-ออก"
+                tip: "A network security system monitoring and filtering incoming and outgoing network traffic."
             },
             {
                 word: "Backup",
                 phonetic: "/ˈbæk.ʌp/ (n.)",
                 sentence: "We schedule an automated weekly ______ of the database to prevent data loss.",
-                sentenceAudio: "We schedule an automated weekly backup of the database to prevent data loss.",
-                hint: "เราตั้งเวลาสำเนา...ฐานข้อมูลอัตโนมัติทุกสัปดาห์เพื่อป้องกันข้อมูลสูญหาย",
                 collocation: "data backup, backup server, restore from backup",
                 correctMain: "Backup",
-                correctSub: "การสำรองข้อมูลเพื่อความปลอดภัย",
                 wrongMain: "Format",
-                wrongSub: "การล้างข้อมูลในดิสก์",
-                tip: "Backup คือการทำสำเนาข้อมูลเก็บแยกไว้อีกชุด เพื่อกู้คืนเวลาเกิดเหตุฉุกเฉิน"
+                tip: "A duplicate copy of digital data stored separately for disaster recovery."
             },
             {
                 word: "Update",
                 phonetic: "/ʌpˈdeɪt/ (v./n.)",
                 sentence: "Make sure to install the latest security ______ to patch dangerous bugs.",
-                sentenceAudio: "Make sure to install the latest security update to patch dangerous bugs.",
-                hint: "อย่าลืมติดตั้งตัว...ความปลอดภัยล่าสุดเพื่ออุดช่องโหว่และข้อผิดพลาดร้ายแรง",
                 collocation: "security update, software update, update system",
                 correctMain: "Update",
-                correctSub: "อัปเดตระบบให้ทันสมัย",
                 wrongMain: "Downgrade",
-                wrongSub: "ดาวน์เกรดย้อนเวอร์ชันเก่า",
-                tip: "การ Update ระบบปฏิบัติการและแอปพลิเคชันเป็นประจำช่วยป้องกันภัยคุกคามใหม่ๆ ได้ดีที่สุด"
+                tip: "A software patch that fixes security vulnerabilities and improves software stability."
             },
             {
                 word: "Phishing",
                 phonetic: "/ˈfɪʃ.ɪŋ/ (n.)",
                 sentence: "Never click links in suspicious emails that mimic PayPal in a fake ______ attempt.",
-                sentenceAudio: "Never click links in suspicious emails that mimic PayPal in a fake phishing attempt.",
-                hint: "อย่าคลิกลิงก์ในอีเมลหลอกลวงที่ปลอมตัวเป็นธนาคารในการพยายามตกเบ็ดแบบ...",
                 collocation: "phishing scam, phishing email, spear phishing",
                 correctMain: "Phishing",
-                correctSub: "ฟิชชิ่ง (การหลอกลวงตกเบ็ดขโมยรหัส)",
                 wrongMain: "Troubleshooting",
-                wrongSub: "การแก้ปัญหาทางเทคนิค",
-                tip: "Phishing คือกลโกงทางไซเบอร์ที่ปลอมหน้าเว็บหรืออีเมลให้เหยื่อกรอกรหัสผ่าน"
+                tip: "Social engineering fraud where attackers deceive victims into revealing credentials."
             }
         ],
-        // Steps 8-10 (3 Questions)
+        // Steps 8-10 (Hard)
         hard: [
             {
                 word: "Encryption",
                 phonetic: "/ɪnˈkrɪp.ʃən/ (n.)",
                 sentence: "End-to-end ______ ensures that only the sender and recipient can read the chat.",
-                sentenceAudio: "End-to-end encryption ensures that only the sender and recipient can read the chat.",
-                hint: "การ...แบบต้นทางถึงปลายทางรับประกันว่าจะมีเพียงผู้ส่งและผู้รับที่อ่านแชทได้",
                 collocation: "data encryption, SSL encryption, strong encryption",
                 correctMain: "Encryption",
-                correctSub: "การเข้ารหัสข้อมูลลับ",
                 wrongMain: "Decryption",
-                wrongSub: "การถอดรหัสอ่านข้อมูล",
-                tip: "Encryption แปลงข้อความธรรมดาให้กลายเป็นรหัสลับที่ไม่มีใครแอบอ่านได้หากไม่มีคีย์ลับ"
+                tip: "Converting plaintext into secure ciphertext unreadable without a decryption key."
             },
             {
                 word: "Vulnerability",
                 phonetic: "/ˌvʌl.nər.əˈbɪl.ə.ti/ (n.)",
                 sentence: "White-hat hackers discovered a critical zero-day ______ in the web browser.",
-                sentenceAudio: "White-hat hackers discovered a critical zero-day vulnerability in the web browser.",
-                hint: "แฮกเกอร์สายขาวค้นพบ...ร้ายแรงแบบ Zero-day ในเว็บเบราว์เซอร์",
                 collocation: "security vulnerability, patch vulnerability, exploit vulnerability",
                 correctMain: "Vulnerability",
-                correctSub: "ช่องโหว่ความปลอดภัยของระบบ",
                 wrongMain: "Feature",
-                wrongSub: "ฟังก์ชันความสามารถใหม่",
-                tip: "Vulnerability คือจุดอ่อนในระบบที่อาจถูกผู้ไม่หวังดีใช้เจาะเข้ามาขโมยข้อมูลได้"
+                tip: "A system flaw or software weakness that can be exploited by threat actors."
             },
             {
                 word: "Authentication",
                 phonetic: "/ɔːˌθen.tɪˈkeɪ.ʃən/ (n.)",
                 sentence: "Multi-factor ______ requires both a password and an SMS code to verify identity.",
-                sentenceAudio: "Multi-factor authentication requires both a password and an SMS code to verify identity.",
-                hint: "การ...แบบหลายปัจจัยกำหนดให้ใช้ทั้งรหัสผ่านและรหัส SMS เพื่อยืนยันตัวตน",
                 collocation: "two-factor authentication, user authentication, biometric authentication",
                 correctMain: "Authentication",
-                correctSub: "การยืนยันตัวตนของผู้ใช้งาน",
                 wrongMain: "Authorization",
-                wrongSub: "การให้สิทธิ์เข้าถึงส่วนต่างๆ",
-                tip: "Authentication ยืนยันว่า 'คุณคือใคร' (Who you are) ส่วน Authorization คือ 'คุณทำอะไรได้บ้าง'"
+                tip: "The process of verifying that an entity or user is who they claim to be."
             }
         ]
     }
 };
 
-// --- 4. GAME STATE VARIABLES ---
+// --- 3. GAME STATE VARIABLES ---
 let currentMap = '';
 let currentStep = 0; // Steps 0 to 9 (10 steps)
 let currentHearts = 3;
@@ -718,18 +484,6 @@ function shuffle(array) {
     return arr;
 }
 
-// Native TTS Speech
-function speakEnglish(text) {
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US';
-        utterance.rate = 0.92;
-        utterance.pitch = 1.0;
-        window.speechSynthesis.speak(utterance);
-    }
-}
-
 // UI Elements Map
 const screens = {};
 const ui = {};
@@ -752,23 +506,16 @@ function init() {
     ui.progressBar = document.getElementById('progress-bar');
     ui.phase = document.getElementById('phase-display');
     ui.sentence = document.getElementById('sentence-display');
-    ui.hint = document.getElementById('sentence-hint');
-    ui.hintBtn = document.getElementById('hint-toggle-btn');
-    ui.listenSentenceBtn = document.getElementById('listen-sentence-btn');
-    ui.soundToggleBtn = document.getElementById('sound-toggle-btn');
     
     ui.optBtn1 = document.getElementById('option-1');
     ui.optBtn2 = document.getElementById('option-2');
     ui.optMain1 = document.getElementById('opt-main-1');
-    ui.optSub1 = document.getElementById('opt-sub-1');
     ui.optMain2 = document.getElementById('opt-main-2');
-    ui.optSub2 = document.getElementById('opt-sub-2');
 
     // Modal UI
     ui.capsuleBadge = document.getElementById('capsule-badge');
     ui.capsuleWord = document.getElementById('capsule-word');
     ui.capsulePhonetic = document.getElementById('capsule-phonetic');
-    ui.capsuleSpeakBtn = document.getElementById('capsule-speak-btn');
     ui.capsuleSentenceText = document.getElementById('capsule-sentence-text');
     ui.capsuleCollocationText = document.getElementById('capsule-collocation-text');
     ui.capsuleTip = document.getElementById('capsule-tip');
@@ -808,7 +555,6 @@ function setupEventListeners() {
     // Map Selection
     document.querySelectorAll('.map-btn[data-map]').forEach(btn => {
         btn.addEventListener('click', () => {
-            AudioEngine.playCoin();
             startGame(btn.dataset.map);
         });
     });
@@ -817,43 +563,14 @@ function setupEventListeners() {
     ui.optBtn1.addEventListener('click', () => handleChoice(ui.optBtn1));
     ui.optBtn2.addEventListener('click', () => handleChoice(ui.optBtn2));
 
-    // Hint Toggle
-    ui.hintBtn.addEventListener('click', () => {
-        ui.hint.classList.toggle('show');
-    });
-
-    // TTS Sentence Button
-    ui.listenSentenceBtn.addEventListener('click', () => {
-        if (currentQuestion) {
-            speakEnglish(currentQuestion.sentenceAudio);
-        }
-    });
-
-    // Sound FX Mute Toggle
-    if (ui.soundToggleBtn) {
-        ui.soundToggleBtn.addEventListener('click', () => {
-            const isMuted = AudioEngine.toggleMute();
-            ui.soundToggleBtn.innerText = isMuted ? '🔇' : '🔊';
-            if (!isMuted) AudioEngine.playCoin();
-        });
-    }
-
     // Modal Continue
     ui.capsuleContinueBtn.addEventListener('click', () => {
         screens.knowledgeModal.classList.add('hidden');
         checkGameState();
     });
 
-    // Modal Audio Pronounce
-    ui.capsuleSpeakBtn.addEventListener('click', () => {
-        if (currentQuestion) {
-            speakEnglish(currentQuestion.word + ". " + currentQuestion.sentenceAudio);
-        }
-    });
-
     // Result Buttons
     ui.backToMenuBtn.addEventListener('click', () => {
-        AudioEngine.playCoin();
         showScreen('mainMenu');
     });
 
@@ -863,7 +580,6 @@ function setupEventListeners() {
 
     // Notebook Screen
     ui.openNotebookBtn.addEventListener('click', () => {
-        AudioEngine.playCoin();
         showNotebook('all');
     });
 
@@ -891,7 +607,7 @@ function showScreen(screenKey) {
     }
 }
 
-// --- 5. GAME ENGINE LOGIC ---
+// --- 4. GAME ENGINE LOGIC ---
 function startGame(mapId) {
     currentMap = mapId;
     currentStep = 0;
@@ -922,11 +638,10 @@ function startGame(mapId) {
 
     setTimeout(() => {
         nextQuestion();
-    }, 250);
+    }, 200);
 }
 
 function spawnEnemy() {
-    // Reset Enemy Transform and inject SVG according to map
     const enemyWrapper = ui.enemy.parentElement;
     enemyWrapper.style.transform = `translateX(0)`;
     screens.game.classList.remove('enemy-hit', 'enemy-attack', 'hero-shoot', 'screen-shake', 'danger-flash');
@@ -949,19 +664,18 @@ function updateUI() {
 }
 
 function nextQuestion() {
-    ui.hint.classList.remove('show');
     resetOptionButtonStyles();
 
     // Determine Phase based on Step
     let phase = 'easy';
-    let phaseText = `ขั้นที่ ${currentStep + 1}/10 (ง่าย +500)`;
+    let phaseText = `Step ${currentStep + 1}/10 (Easy +500)`;
 
     if (currentStep >= 3 && currentStep <= 6) {
         phase = 'medium';
-        phaseText = `ขั้นที่ ${currentStep + 1}/10 (ปานกลาง +1,000)`;
+        phaseText = `Step ${currentStep + 1}/10 (Medium +1,000)`;
     } else if (currentStep >= 7) {
         phase = 'hard';
-        phaseText = `ขั้นที่ ${currentStep + 1}/10 (ยาก/บอส +2,000)`;
+        phaseText = `Step ${currentStep + 1}/10 (Hard +2,000)`;
     }
 
     ui.phase.innerText = phaseText;
@@ -977,34 +691,24 @@ function nextQuestion() {
     // Render sentence with highlighted blank box
     const formattedSentence = currentQuestion.sentence.replace('______', '<span class="blank-box">______</span>');
     ui.sentence.innerHTML = formattedSentence;
-    ui.hint.innerText = currentQuestion.hint;
 
     // Randomize option placements (Left or Right)
     const correctFirst = Math.random() < 0.5;
     if (correctFirst) {
         ui.optMain1.innerText = currentQuestion.correctMain;
-        ui.optSub1.innerText = currentQuestion.correctSub;
         ui.optBtn1.dataset.correct = "true";
 
         ui.optMain2.innerText = currentQuestion.wrongMain;
-        ui.optSub2.innerText = currentQuestion.wrongSub;
         ui.optBtn2.dataset.correct = "false";
     } else {
         ui.optMain1.innerText = currentQuestion.wrongMain;
-        ui.optSub1.innerText = currentQuestion.wrongSub;
         ui.optBtn1.dataset.correct = "false";
 
         ui.optMain2.innerText = currentQuestion.correctMain;
-        ui.optSub2.innerText = currentQuestion.correctSub;
         ui.optBtn2.dataset.correct = "true";
     }
 
     recordLearnedWord(currentQuestion, currentMap);
-
-    // Auto pronounce gently
-    setTimeout(() => {
-        speakEnglish(currentQuestion.sentenceAudio);
-    }, 250);
 }
 
 function resetOptionButtonStyles() {
@@ -1025,17 +729,11 @@ function handleChoice(selectedBtn) {
     const isCorrect = selectedBtn.dataset.correct === "true";
 
     if (isCorrect) {
-        // --- 1. Sound FX ---
-        AudioEngine.playLaser();
-
-        // --- 2. Hero Shoot Animation & Laser Beam ---
+        // Hero Shoot Animation & Laser Beam
         screens.game.classList.add('hero-shoot');
         spawnLaserBolt();
 
         setTimeout(() => {
-            AudioEngine.playHit();
-            AudioEngine.playCoin();
-
             screens.game.classList.add('enemy-hit');
             spawnHitSpark();
 
@@ -1051,12 +749,11 @@ function handleChoice(selectedBtn) {
 
             setTimeout(() => {
                 showKnowledgeModal(true);
-            }, 600);
+            }, 550);
         }, 180);
 
     } else {
-        // --- Wrong Answer Sequence ---
-        AudioEngine.playError();
+        // Wrong Answer Sequence
         screens.game.classList.add('screen-shake', 'danger-flash', 'enemy-attack');
 
         currentHearts--;
@@ -1074,7 +771,7 @@ function handleChoice(selectedBtn) {
 
         setTimeout(() => {
             showKnowledgeModal(false);
-        }, 600);
+        }, 550);
     }
 }
 
@@ -1103,10 +800,10 @@ function spawnScorePopup(text) {
 
 function showKnowledgeModal(wasCorrect) {
     if (wasCorrect) {
-        ui.capsuleBadge.innerText = "✅ ถูกต้องยอดเยี่ยม! (Correct)";
+        ui.capsuleBadge.innerText = "CORRECT!";
         ui.capsuleBadge.className = "capsule-badge badge-correct";
     } else {
-        ui.capsuleBadge.innerText = "❌ พลาดไปนิด! (Incorrect)";
+        ui.capsuleBadge.innerText = "INCORRECT!";
         ui.capsuleBadge.className = "capsule-badge badge-wrong";
     }
 
@@ -1122,20 +819,18 @@ function showKnowledgeModal(wasCorrect) {
 function checkGameState() {
     if (currentHearts <= 0) {
         // Game Over
-        AudioEngine.playError();
         ui.resultTitle.innerText = "MISSION FAILED";
         ui.resultTitle.style.color = "#ff5252";
-        ui.resultMessage.innerText = "ระบบถูกมัลแวร์บุกทำลาย! ทบทวนคำศัพท์แล้วกลับมาท้าทายใหม่";
+        ui.resultMessage.innerText = "System corrupted by malware! Review vocabulary and try again.";
         ui.finalScore.innerText = `SCORE: ${score.toLocaleString()}`;
         saveHighScore();
         showScreen('result');
         isAnimating = false;
     } else if (currentStep >= 10) {
         // Victory Clear
-        AudioEngine.playFanfare();
         ui.resultTitle.innerText = "STAGE CLEARED!";
         ui.resultTitle.style.color = "#76ff03";
-        ui.resultMessage.innerText = "ยอดเยี่ยมมาก! คุณเอาชีวิตรอดครบทั้ง 10 ด่านสำเร็จ";
+        ui.resultMessage.innerText = "Outstanding! You survived all 10 stages successfully.";
         ui.finalScore.innerText = `SCORE: ${score.toLocaleString()}`;
         saveHighScore();
         showScreen('result');
@@ -1165,7 +860,7 @@ function recordLearnedWord(q, map) {
             phonetic: q.phonetic,
             sentence: q.sentence.replace('______', q.word),
             collocation: q.collocation,
-            correctSub: q.correctSub,
+            tip: q.tip,
             map: map,
             timestamp: Date.now()
         });
@@ -1173,7 +868,7 @@ function recordLearnedWord(q, map) {
     }
 }
 
-// --- 6. VOCAB NOTEBOOK SYSTEM ---
+// --- 5. VOCAB NOTEBOOK SYSTEM ---
 function showNotebook(filterMap) {
     showScreen('notebook');
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -1195,7 +890,7 @@ function renderNotebookList(filter) {
         ui.vocabList.innerHTML = `
             <div style="text-align:center; padding: 40px 20px; color:#78909c;">
                 <p style="font-size:2.5rem; margin-bottom:10px;">📖</p>
-                <p style="font-size:1rem; font-weight:700;">ยังไม่มีคำศัพท์ในหมวดนี้<br>เริ่มเล่นด่านเพื่อปลดล็อคคำศัพท์กันเลย!</p>
+                <p style="font-size:1rem; font-weight:700;">No vocabulary saved in this category yet.<br>Play a server to unlock vocabulary cards!</p>
             </div>
         `;
         return;
@@ -1206,26 +901,19 @@ function renderNotebookList(filter) {
         card.className = 'vocab-card';
         card.innerHTML = `
             <div class="vocab-card-header">
-                <div>
-                    <span class="vocab-word-title">${item.word}</span>
-                    <span style="font-size:0.85rem; color:#90a4ae; font-weight:700;"> ${item.phonetic}</span>
-                </div>
-                <button class="tts-btn play-vocab-btn">🔊 ฟัง</button>
+                <span class="vocab-word-title">${item.word}</span>
+                <span style="font-size:0.85rem; color:#90a4ae; font-weight:700;">${item.phonetic}</span>
             </div>
-            <div style="font-size:0.92rem; font-weight:700; color:#cfd8dc;">
-                ความหมาย: ${item.correctSub}
-            </div>
-            <div style="font-size:0.88rem; background:rgba(0, 229, 255, 0.08); border-left:3px solid #00e5ff; padding:6px 10px; border-radius:0 10px 10px 0; color:#e0f7fa; margin-top:2px;">
+            <div style="font-size:0.9rem; background:rgba(0, 229, 255, 0.08); border-left:3px solid #00e5ff; padding:6px 10px; border-radius:0 10px 10px 0; color:#e0f7fa;">
                 📝 "${item.sentence}"
             </div>
-            <div style="font-size:0.82rem; color:#fff59d; background:rgba(255, 214, 0, 0.08); border-left:3px solid #ffd600; padding:4px 8px; border-radius:0 8px 8px 0; margin-top:2px;">
-                ⚡ วลีที่พบบ่อย: ${item.collocation}
+            <div style="font-size:0.85rem; color:#fff59d; background:rgba(255, 214, 0, 0.08); border-left:3px solid #ffd600; padding:4px 8px; border-radius:0 8px 8px 0;">
+                ⚡ Collocation: ${item.collocation}
+            </div>
+            <div style="font-size:0.82rem; color:#b0bec5; padding:0 4px;">
+                💡 ${item.tip || ''}
             </div>
         `;
-
-        card.querySelector('.play-vocab-btn').addEventListener('click', () => {
-            speakEnglish(item.word + ". " + item.sentence);
-        });
 
         ui.vocabList.appendChild(card);
     });

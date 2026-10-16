@@ -1,49 +1,49 @@
-# 🎮 Word of Survivor - Real English Practice Edition
+# 🎮 Word of Survivor - Arcade IT English Survival Edition
 
-เกมเอาชีวิตรอดฝึกคำศัพท์ภาษาอังกฤษสายไอที (IT & Computer Science) ผ่านบริบทประโยคจริงในสายงาน พร้อมเสียงอ่านสำเนียงมาตรฐาน (Text-to-Speech) และดีไซน์ 3D Clay Pastel
-
----
-
-## 🌟 ฟีเจอร์หลัก (Key Features)
-
-1. **การเรียนรู้ผ่านบริบทจริง (Contextual Learning):**
-   - ผู้เล่นไม่ได้แค่ท่องจำคำศัพท์เดี่ยวๆ แต่ฝึกเติมคำในประโยคสถานการณ์จำลองจริงในสายงานไอที
-   - มีคำแปลบริบทภาษาไทยให้กดดูคำใบ้ (Hint)
-   - มีการเน้น **Collocations (คำที่มักใช้ร่วมกัน)** เช่น `infinite loop`, `firewall rules`, `low latency`
-   - มีเกร็ดความรู้ทางเทคนิคสั้นๆ (Pro Tip) เสริมความเข้าใจ
-
-2. **แบ่งหมวดหมู่ชัดเจน 3 ด่าน (หมวดละ 10 ข้อ รวม 30 ข้อ):**
-   - 🤖 **Hardware Base:** เครือข่าย อุปกรณ์เชื่อมต่อ และชิ้นส่วนคอมพิวเตอร์ (Mouse, Screen, Cable, Server, Router, Storage, Memory, Motherboard, Bandwidth, Latency)
-   - 💻 **Coding Matrix:** โลกแห่งการเขียนโปรแกรมและซอฟต์แวร์ (Bug, Loop, Run, Variable, Function, Syntax, Compile, Algorithm, Deployment, Inheritance)
-   - ☁️ **Cyber Cloud:** ระบบคลาวด์และความปลอดภัยทางไซเบอร์ (Password, Lock, Cloud, Firewall, Backup, Update, Phishing, Encryption, Vulnerability, Authentication)
-
-3. **ระบบความยาก 3 ระดับ สอดรับ 10 ก้าวเอาชีวิตรอด (10-Step Progression):**
-   - **ขั้นที่ 1 - 3 (ระดับง่าย):** คำศัพท์พื้นฐาน (+500 คะแนน)
-   - **ขั้นที่ 4 - 7 (ระดับกลาง):** คำศัพท์การทำงานจริง (+1,000 คะแนน)
-   - **ขั้นที่ 8 - 10 (ระดับยาก):** คำศัพท์เทคนิคขั้นสูง (+2,000 คะแนน)
-   - ป้องกันข้อซ้ำตลอดการเล่นแต่ละรอบ (Non-repeating Deck System)
-
-4. **เสียงอ่านภาษาอังกฤษ (Native Pronunciation):**
-   - รองรับ Web Speech API เล่นเสียงคำศัพท์และประโยคภาษาอังกฤษได้อัตโนมัติ
-
-5. **สมุดสะสมคำศัพท์ (Vocab Notebook):**
-   - บันทึกคำศัพท์ที่ผ่านตาลงในเครื่องผู้เล่น (LocalStorage)
-   - สามารถเปิดทบทวน ฟังเสียงซ้ำ และกรองตามหมวดหมู่ได้ทุกเวลา
+An interactive 2D cartoon arcade survival game designed for practicing real-world IT and Computer Science English vocabulary in context.
 
 ---
 
-## 🚀 วิธีการเปิดใช้งาน (How to Run)
+## 🌟 Key Features
 
-เพียงเปิดไฟล์ `index.html` ด้วยเว็บเบราว์เซอร์ใดก็ได้ เช่น Google Chrome, Microsoft Edge, Safari หรือ Firefox โดยไม่ต้องลงโปรแกรมเสริม
+1. **Contextual English Immersion:**
+   - Players practice English IT terms through real-world sentence fill-in-the-blank scenarios rather than rote memorization.
+   - Includes **Collocations** (e.g., `wireless mouse`, `infinite loop`, `firewall rules`).
+   - Technical **Pro Tips** reinforcing core computer science and IT concepts.
+
+2. **3 Distinct Challenge Servers (10 Steps Each, 30 Questions Total):**
+   - 🖥️ **Hardware Base:** Peripherals, networking devices, memory, and motherboard architecture (`Mouse`, `Screen`, `Cable`, `Server`, `Router`, `Storage`, `Memory`, `Motherboard`, `Bandwidth`, `Latency`).
+   - 💻 **Coding Matrix:** Programming syntax, functions, compilation, OOP, and algorithms (`Bug`, `Loop`, `Run`, `Variable`, `Function`, `Syntax`, `Compile`, `Algorithm`, `Deployment`, `Inheritance`).
+   - ☁️ **Cyber Cloud:** Cloud storage, network security, authentication, and encryption (`Password`, `Lock`, `Cloud`, `Firewall`, `Backup`, `Update`, `Phishing`, `Encryption`, `Vulnerability`, `Authentication`).
+
+3. **3-Tier Survival Progression:**
+   - **Steps 1 - 3 (Easy):** Core fundamentals (+500 PTS)
+   - **Steps 4 - 7 (Medium):** Workplace scenarios (+1,000 PTS)
+   - **Steps 8 - 10 (Hard):** Advanced concepts (+2,000 PTS)
+   - Shuffled non-repeating question deck per playthrough.
+
+4. **Authentic 2D Action Arcade Aesthetic:**
+   - Custom animated 2D cartoon SVG characters (Survivor Hero and responsive Monsters).
+   - High-contrast arcade HUD and tactile green action buttons inspired by classic mobile arcade shooters.
+   - Dynamic visual FX: blaster recoil, muzzle flash, laser projectile bolts, and hit sparks.
+
+5. **Persistent Vocabulary Notebook:**
+   - Discovered vocabulary is automatically saved to browser LocalStorage for review and category filtering.
 
 ---
 
-## 📂 โครงสร้างโปรเจกต์ (Project Structure)
+## 🚀 How to Run
+
+Simply open `index.html` in any modern web browser (Google Chrome, Microsoft Edge, Safari, Firefox). No installation or server required.
+
+---
+
+## 📂 Project Structure
 
 ```
 Word-of-Survivor/
-├── index.html     # ไฟล์หน้าเว็บหลัก พร้อม UI และระบบเกม
-├── style.css      # สไตล์ CSS ดีไซน์ 3D Clay Pastel
-├── script.js      # ระบบคำศัพท์ 10 ข้อ/หมวด และตรรกะเกมทั้งหมด
-└── README.md      # คู่มือและคำอธิบายโปรเจกต์
+├── index.html     # Main HTML game container & UI
+├── style.css      # 2D Cartoon Arcade stylesheet
+├── script.js      # Game engine, animations & 30 IT questions
+└── README.md      # Documentation
 ```
