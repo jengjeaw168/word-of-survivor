@@ -12,17 +12,17 @@
 
 ### Group Members (9 Distinct Roles):
 
-| No. | Student ID | Name - Surname | Role & Contribution (English) | Key Responsibilities |
+| No. | Student ID (รหัสนักศึกษา) | Name - Surname (ชื่อ - สกุล) | Role / Position (ตำแหน่งภาษาอังกฤษ) | หน้าที่และความรับผิดชอบในโปรเจกต์ |
 |:---:|:---:|:---|:---|:---|
-| 1 | `[Student ID]` | `[Full Name]` | **Project Manager & Game Producer** | Oversees project roadmap, task delegation, team coordination, and milestone deliveries. |
-| 2 | `[Student ID]` | `[Full Name]` | **Lead Game Designer & Systems Architect** | Designs 10-step progression, 3-tier difficulty pacing (Easy/Medium/Hard), and scoring mechanics. |
-| 3 | `[Student ID]` | `[Full Name]` | **Lead Frontend & Gameplay Programmer** | Implements core game loop, DOM state machine, pause overlay, and pure visual gameplay in JavaScript. |
-| 4 | `[Student ID]` | `[Full Name]` | **UI/UX & 2D Vector Artist** | Designs 2D cartoon arcade theme, responsive mobile HUD, and custom vector SVG characters. |
-| 5 | `[Student ID]` | `[Full Name]` | **IT Curriculum & Vocabulary Specialist** | Curates 30 industry-standard IT terms across 3 domains and formulates technical pro-tips. |
-| 6 | `[Student ID]` | `[Full Name]` | **Contextual Scenario & Dialogue Writer** | Authors authentic workplace sentence challenges and extracts high-frequency IT collocations. |
-| 7 | `[Student ID]` | `[Full Name]` | **Animation & Visual FX Engineer** | Codes CSS keyframe FX for blaster recoil, laser bolt flight, hit sparks, and camera shake. |
-| 8 | `[Student ID]` | `[Full Name]` | **Lead QA Engineer & Playtester** | Conducts gameplay balance testing, bug tracking, edge-case verification, and cross-device testing. |
-| 9 | `[Student ID]` | `[Full Name]` | **DevOps Engineer & Technical Writer** | Manages Git workflows, configures GitHub Pages deployment, and authors submission documentation. |
+| 1 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **Project Manager & Game Producer** | วางแผนภาพรวมโปรเจกต์ บริหารจัดการเวลาและลำดับงาน (Roadmap) ประสานงานสมาชิกในทีม และควบคุมการส่งมอบงานบน MS Teams |
+| 2 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **Lead Game Designer & Systems Architect** | ออกแบบระบบเกมและกติกาการเล่น กฎการเอาชีวิตรอด 10 ขั้นตอน ระบบความยาก 3 ระดับ (ง่าย/กลาง/ยาก) และระบบคำนวณคะแนน |
+| 3 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **Lead Frontend & Gameplay Programmer** | พัฒนาระบบการทำงานของเกมด้วย JavaScript ควบคุมลูปของเกม (Game Loop), ระบบสุ่มคำศัพท์ไม่ซ้ำ และระบบปุ่มเมนู Pause |
+| 4 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **UI/UX & 2D Vector Artist** | ออกแบบส่วนติดต่อผู้ใช้ (UI/UX) ธีมเกมตู้ 2D Action Arcade จัดวาง Layout หน้าจอมือถือ และวาดภาพเวกเตอร์ตัวละคร SVG (ฮีโร่และมอนสเตอร์) |
+| 5 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **IT Curriculum & Vocabulary Specialist** | คัดเลือกและจัดหมวดหมู่คำศัพท์ไอที 30 คำ (Hardware, Coding, Cyber Cloud) พร้อมเขียนคำอธิบายเกร็ดความรู้ทางเทคนิค (Pro Tip) |
+| 6 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **Contextual Scenario & Dialogue Writer** | แต่งประโยคสถานการณ์จำลองปัญหาไอทีในชีวิตการทำงานจริง และคัดกรองวลีที่พบบ่อย (Collocations) เพื่อฝึกฝนความเข้าใจจากบริบท |
+| 7 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **Animation & Visual FX Engineer** | พัฒนาระบบอนิเมชัน CSS Keyframes เอฟเฟกต์ยิงกระสุนเลเซอร์ ลำแสง แสงวาบปลายกระบอกปืน ประกายไฟกระแทก และหน้าจอสั่นเมื่อตอบผิด |
+| 8 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **Lead QA Engineer & Playtester** | ทดสอบการเล่นจริง (Playtesting) ตรวจสอบความสมดุลของเกม ค้นหาและรายงานข้อผิดพลาด (Bugs) รวมถึงทดสอบการแสดงผลบนเบราว์เซอร์ต่างๆ |
+| 9 | `[รหัสนักศึกษา]` | `[ชื่อ-นามสกุล]` | **DevOps Engineer & Technical Writer** | ดูแลระบบเวอร์ชันคอนโทรล (Git) นำตัวเกมขึ้นออนไลน์ผ่าน GitHub Pages และจัดทำเอกสารประกอบโครงงาน (Game Document) 1 หน้า |
 
 ---
 
