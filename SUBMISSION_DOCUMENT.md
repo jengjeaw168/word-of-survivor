@@ -10,14 +10,19 @@
 ### Project Title:
 **Word of Survivor: Arcade IT English Survival**
 
-### Group Members:
+### Group Members (9 Distinct Roles):
 
-| No. | Student ID (รหัสนักศึกษา) | Name - Surname (ชื่อ - สกุล) | Role & Contribution (หน้าที่และบทบาทในโปรเจกต์) |
-|:---:|:---:|:---|:---|
-| 1 | `[ใส่รหัสนักศึกษา]` | `[ใส่ชื่อ-นามสกุล]` | **Project Lead & Core Game Design:** ออกแบบตรรกะเกม, ระบบความยาก 3 ระดับ และ Core Loop |
-| 2 | `[ใส่รหัสนักศึกษา]` | `[ใส่ชื่อ-นามสกุล]` | **Content & Pedagogical Design:** คัดเลือกและเรียบเรียงคำศัพท์ไอที 30 คำ ประโยคบริบทจริง และ Collocations |
-| 3 | `[ใส่รหัสนักศึกษา]` | `[ใส่ชื่อ-นามสกุล]` | **UI/UX & Frontend Development:** ออกแบบธีม 2D Action Arcade, วาดตัวละคร SVG และพัฒนา Responsive Web |
-| 4 | `[ใส่รหัสนักศึกษา]` | `[ใส่ชื่อ-นามสกุล]` | **QA Testing, Deployment & Documentation:** ทดสอบเกม (Playtesting), ขึ้นระบบ GitHub Pages และจัดทำเอกสารประกอบ |
+| No. | Student ID | Name - Surname | Role & Contribution (English) | Key Responsibilities |
+|:---:|:---:|:---|:---|:---|
+| 1 | `[Student ID]` | `[Full Name]` | **Project Manager & Game Producer** | Oversees project roadmap, task delegation, team coordination, and milestone deliveries. |
+| 2 | `[Student ID]` | `[Full Name]` | **Lead Game Designer & Systems Architect** | Designs 10-step progression, 3-tier difficulty pacing (Easy/Medium/Hard), and scoring mechanics. |
+| 3 | `[Student ID]` | `[Full Name]` | **Lead Frontend & Gameplay Programmer** | Implements core game loop, DOM state machine, pause overlay, and pure visual gameplay in JavaScript. |
+| 4 | `[Student ID]` | `[Full Name]` | **UI/UX & 2D Vector Artist** | Designs 2D cartoon arcade theme, responsive mobile HUD, and custom vector SVG characters. |
+| 5 | `[Student ID]` | `[Full Name]` | **IT Curriculum & Vocabulary Specialist** | Curates 30 industry-standard IT terms across 3 domains and formulates technical pro-tips. |
+| 6 | `[Student ID]` | `[Full Name]` | **Contextual Scenario & Dialogue Writer** | Authors authentic workplace sentence challenges and extracts high-frequency IT collocations. |
+| 7 | `[Student ID]` | `[Full Name]` | **Animation & Visual FX Engineer** | Codes CSS keyframe FX for blaster recoil, laser bolt flight, hit sparks, and camera shake. |
+| 8 | `[Student ID]` | `[Full Name]` | **Lead QA Engineer & Playtester** | Conducts gameplay balance testing, bug tracking, edge-case verification, and cross-device testing. |
+| 9 | `[Student ID]` | `[Full Name]` | **DevOps Engineer & Technical Writer** | Manages Git workflows, configures GitHub Pages deployment, and authors submission documentation. |
 
 ---
 

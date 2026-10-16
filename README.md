@@ -75,16 +75,19 @@ An interactive 2D cartoon arcade survival game designed for practicing real-worl
 
 ---
 
-## 👥 Team Members & Contributions (Project Cover Template)
+## 👥 Team Members & Contributions (9 Distinct Roles)
 
-| No. | Student ID | Full Name (ชื่อ - นามสกุล) | Project Role & Contribution |
-| :---: | :---: | :--- | :--- |
-| 1 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **Project Lead & Gameplay Design** (Game mechanics, core loop planning) |
-| 2 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **Content & Vocabulary Specialist** (IT scenario sentences, collocations) |
-| 3 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **Frontend & UI/UX Developer** (HTML/CSS layout, SVG integration) |
-| 4 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **QA Testing & Documentation** (Game testing, deployment, final report) |
-
-*(Note: Replace placeholders with actual group member details before final MS Teams submission.)*
+| No. | Student ID | Full Name | Project Role & Contribution | Key Responsibilities |
+| :---: | :---: | :--- | :--- | :--- |
+| 1 | `[Student ID]` | `[Full Name]` | **Project Manager & Game Producer** | Oversees roadmap, task management, timeline, and milestone deliverables. |
+| 2 | `[Student ID]` | `[Full Name]` | **Lead Game Designer & Systems Architect** | Designs 10-step progression, 3-tier difficulty pacing, and scoring balance. |
+| 3 | `[Student ID]` | `[Full Name]` | **Lead Frontend & Gameplay Programmer** | Implements JavaScript game loop, state machine, input handling, and pause overlay. |
+| 4 | `[Student ID]` | `[Full Name]` | **UI/UX & 2D Vector Artist** | Designs 2D cartoon arcade theme, responsive mobile HUD, and custom SVG characters. |
+| 5 | `[Student ID]` | `[Full Name]` | **IT Curriculum & Vocabulary Specialist** | Curates 30 core IT terms across 3 domains and writes technical pro-tips. |
+| 6 | `[Student ID]` | `[Full Name]` | **Contextual Scenario & Dialogue Writer** | Crafts workplace fill-in-the-blank sentences and extracts IT collocations. |
+| 7 | `[Student ID]` | `[Full Name]` | **Animation & Visual FX Engineer** | Codes CSS keyframe animations for blaster recoil, laser bolt flight, and hit sparks. |
+| 8 | `[Student ID]` | `[Full Name]` | **Lead QA Engineer & Playtester** | Conducts gameplay balance playtests, bug tracking, and cross-browser validation. |
+| 9 | `[Student ID]` | `[Full Name]` | **DevOps Engineer & Technical Writer** | Manages Git workflows, GitHub Pages deployment, and documentation. |
 
 ---
 
