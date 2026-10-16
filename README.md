@@ -1,44 +1,97 @@
-# 🎮 Word of Survivor - Arcade IT English Survival Edition
+# 🎮 Word of Survivor: Arcade IT English Survival
 
-An interactive 2D cartoon arcade survival game designed for practicing real-world IT and Computer Science English vocabulary in context.
+[![Play Online](https://img.shields.io/badge/Play_Game-GitHub_Pages-2ecc71?style=for-the-badge&logo=github)](https://jengjeaw168.github.io/word-of-survivor/)
+[![GitHub Repo](https://img.shields.io/badge/Source_Code-Repository-00e5ff?style=for-the-badge&logo=github)](https://github.com/jengjeaw168/word-of-survivor)
 
----
-
-## 🌟 Key Features
-
-1. **Contextual English Immersion:**
-   - Players practice English IT terms through real-world sentence fill-in-the-blank scenarios rather than rote memorization.
-   - Includes **Collocations** (e.g., `wireless mouse`, `infinite loop`, `firewall rules`).
-   - Technical **Pro Tips** reinforcing core computer science and IT concepts.
-
-2. **3 Distinct Challenge Servers (10 Steps Each, 30 Questions Total):**
-   - 🖥️ **Hardware Base:** Peripherals, networking devices, memory, and motherboard architecture (`Mouse`, `Screen`, `Cable`, `Server`, `Router`, `Storage`, `Memory`, `Motherboard`, `Bandwidth`, `Latency`).
-   - 💻 **Coding Matrix:** Programming syntax, functions, compilation, OOP, and algorithms (`Bug`, `Loop`, `Run`, `Variable`, `Function`, `Syntax`, `Compile`, `Algorithm`, `Deployment`, `Inheritance`).
-   - ☁️ **Cyber Cloud:** Cloud storage, network security, authentication, and encryption (`Password`, `Lock`, `Cloud`, `Firewall`, `Backup`, `Update`, `Phishing`, `Encryption`, `Vulnerability`, `Authentication`).
-
-3. **3-Tier Survival Progression:**
-   - **Steps 1 - 3 (Easy):** Core fundamentals (+500 PTS)
-   - **Steps 4 - 7 (Medium):** Workplace scenarios (+1,000 PTS)
-   - **Steps 8 - 10 (Hard):** Advanced concepts (+2,000 PTS)
-   - Shuffled non-repeating question deck per playthrough.
-
-4. **Authentic 2D Action Arcade Aesthetic:**
-   - Custom animated 2D cartoon SVG characters (Survivor Hero and responsive Monsters).
-   - High-contrast arcade HUD and tactile green action buttons inspired by classic mobile arcade shooters.
-   - Dynamic visual FX: blaster recoil, muzzle flash, laser projectile bolts, and hit sparks.
-
-5. **In-Game Menu & Controls (Hamburger Icon ☰):**
-   - In-game arcade hamburger button opens the pause overlay anytime.
-   - Options: **`Resume`** (continue game), **`Restart`** (restart current stage from Step 1), and **`Quit Game`** (exit to main menu).
-
-6. **Persistent Vocabulary Notebook:**
-   - Discovered vocabulary is automatically saved to browser LocalStorage for review and category filtering.
+An interactive 2D cartoon arcade survival game designed for practicing real-world Computer Science and Information Technology English vocabulary in context.
 
 ---
 
-## 🚀 How to Run
+## 📄 1-Page Game Document (Project Submission)
 
-Simply open `index.html` in any modern web browser (Google Chrome, Microsoft Edge, Safari, Firefox). No installation or server required.
+### 1. Game Title
+**Word of Survivor: Arcade IT English Survival**
+
+### 2. Target Learners
+- **Primary Audience:** Undergraduate Computer Science, Information Technology, and Software Engineering students.
+- **Secondary Audience:** Junior developers and tech enthusiasts preparing for English-speaking workplace communications and technical interviews (CEFR B1–B2).
+
+### 3. Language Learning Objectives
+- **Contextual Deduction:** Shift learners from rote memorization to identifying technical terms through real-world sentence scenarios.
+- **Collocation Mastery:** Internalize high-frequency natural word partnerships in IT (e.g., *infinite loop*, *two-factor authentication*, *packet latency*, *continuous deployment*).
+- **Domain Retention:** Reinforce 30 essential IT concepts spanning hardware components, software engineering, and cybersecurity.
+
+### 4. How to Play (Gameplay Mechanics)
+1. **Choose a Server:** Select from 3 distinct IT domain maps: **Hardware Base**, **Coding Matrix**, or **Cyber Cloud** (10 steps each).
+2. **Analyze the Scenario:** Read the on-screen technical problem or description with a highlighted missing term (`[ ??? ]`).
+3. **Action Choice:** Tap the correct green arcade action button from two competing choices.
+4. **Combat Feedback:**
+   - **Correct:** The Survivor fires a blaster laser bolt, destroying the monster, awarding points, and revealing an instant knowledge capsule.
+   - **Incorrect:** The monster lunges forward, inflicting damage (-1 heart) and setting the player back 1–2 steps.
+5. **Survival Progression:** Progress through 3 tiers (Easy: Steps 1–3, Medium: Steps 4–7, Hard: Steps 8–10) with 3 hearts to survive all 10 steps.
+6. **In-Game Menu (☰):** Access `Resume`, `Restart`, or `Quit Game` anytime.
+
+### 5. Core Loop Description
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                       THE CORE LOOP                         │
+└─────────────────────────────────────────────────────────────┘
+                               │
+                               ▼
+     ┌───────────────────────────────────────────────────┐
+     │ 1. Challenge Encounter                            │
+     │    Read context-rich IT workplace scenario        │
+     └───────────────────────────────────────────────────┘
+                               │
+                               ▼
+     ┌───────────────────────────────────────────────────┐
+     │ 2. Term Selection                                 │
+     │    Analyze distractors & select target vocabulary │
+     └───────────────────────────────────────────────────┘
+                               │
+                               ▼
+     ┌───────────────────────────────────────────────────┐
+     │ 3. Immediate Combat Feedback                      │
+     │    Laser blast & score UP  OR  Damage & setback   │
+     └───────────────────────────────────────────────────┘
+                               │
+                               ▼
+     ┌───────────────────────────────────────────────────┐
+     │ 4. Knowledge Reinforcement                        │
+     │    Review definition & collocation in Capsule/Book│
+     └───────────────────────────────────────────────────┘
+                               │
+                               ▼
+     ┌───────────────────────────────────────────────────┐
+     │ 5. Difficulty Progression                         │
+     │    Step up tiers (Easy -> Med -> Hard) to Clear   │
+     └───────────────────────────────────────────────────┘
+```
+
+### 6. List of AI Tools Used
+- **Google DeepMind Antigravity AI:** Pair programming agent used for full-stack frontend architecture, CSS 2D cartoon arcade styling, SVG vector character design, and game state management.
+- **Generative AI (Large Language Models):** Utilized for pedagogical domain analysis, IT collocation extraction, and sentence scenario calibration.
+
+---
+
+## 👥 Team Members & Contributions (Project Cover Template)
+
+| No. | Student ID | Full Name (ชื่อ - นามสกุล) | Project Role & Contribution |
+| :---: | :---: | :--- | :--- |
+| 1 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **Project Lead & Gameplay Design** (Game mechanics, core loop planning) |
+| 2 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **Content & Vocabulary Specialist** (IT scenario sentences, collocations) |
+| 3 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **Frontend & UI/UX Developer** (HTML/CSS layout, SVG integration) |
+| 4 | `[รหัสนักศึกษา]` | `[ชื่อ - นามสกุล]` | **QA Testing & Documentation** (Game testing, deployment, final report) |
+
+*(Note: Replace placeholders with actual group member details before final MS Teams submission.)*
+
+---
+
+## 🚀 Playable Links & Deployment
+
+- **Live Playable Game (GitHub Pages):** [https://jengjeaw168.github.io/word-of-survivor/](https://jengjeaw168.github.io/word-of-survivor/)
+- **Source Code Repository:** [https://github.com/jengjeaw168/word-of-survivor](https://github.com/jengjeaw168/word-of-survivor)
 
 ---
 
@@ -46,8 +99,8 @@ Simply open `index.html` in any modern web browser (Google Chrome, Microsoft Edg
 
 ```
 Word-of-Survivor/
-├── index.html     # Main HTML game container & UI
-├── style.css      # 2D Cartoon Arcade stylesheet
-├── script.js      # Game engine, animations & 30 IT questions
-└── README.md      # Documentation
+├── index.html     # Main HTML game container, HUD, and dialogs
+├── style.css      # 2D Cartoon Arcade stylesheet & responsive layouts
+├── script.js      # Game engine, animations, and 30-word IT database
+└── README.md      # 1-Page Game Document & Submission Overview
 ```
