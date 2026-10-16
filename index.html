@@ -68,6 +68,11 @@
                         <span class="icon">❤️</span>
                         <span id="hearts-display">3</span>
                     </div>
+                    <button id="menu-btn" class="hamburger-btn" title="Game Menu" aria-label="Game Menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
                 </div>
                 
                 <div class="progress-bar-container">
@@ -110,6 +115,27 @@
                 <button id="option-2" class="option-btn">
                     <span class="option-main" id="opt-main-2">Option 2</span>
                 </button>
+            </div>
+        </div>
+
+        <!-- In-Game Pause / Hamburger Menu Modal -->
+        <div id="pause-modal" class="hidden">
+            <div class="pause-card">
+                <div class="pause-header">
+                    <h2>GAME MENU</h2>
+                    <button id="close-pause-btn" class="close-btn">✕</button>
+                </div>
+                <div class="pause-menu-actions">
+                    <button id="resume-game-btn" class="menu-action-btn btn-resume">
+                        ▶️ RESUME
+                    </button>
+                    <button id="restart-game-btn" class="menu-action-btn btn-restart">
+                        🔄 RESTART
+                    </button>
+                    <button id="quit-game-btn" class="menu-action-btn btn-quit">
+                        🚪 QUIT GAME
+                    </button>
+                </div>
             </div>
         </div>
 

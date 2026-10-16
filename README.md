@@ -27,7 +27,11 @@ An interactive 2D cartoon arcade survival game designed for practicing real-worl
    - High-contrast arcade HUD and tactile green action buttons inspired by classic mobile arcade shooters.
    - Dynamic visual FX: blaster recoil, muzzle flash, laser projectile bolts, and hit sparks.
 
-5. **Persistent Vocabulary Notebook:**
+5. **In-Game Menu & Controls (Hamburger Icon ☰):**
+   - In-game arcade hamburger button opens the pause overlay anytime.
+   - Options: **`Resume`** (continue game), **`Restart`** (restart current stage from Step 1), and **`Quit Game`** (exit to main menu).
+
+6. **Persistent Vocabulary Notebook:**
    - Discovered vocabulary is automatically saved to browser LocalStorage for review and category filtering.
 
 ---

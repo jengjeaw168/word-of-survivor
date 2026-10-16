@@ -495,8 +495,14 @@ function init() {
     screens.result = document.getElementById('result-screen');
     screens.notebook = document.getElementById('notebook-screen');
     screens.knowledgeModal = document.getElementById('knowledge-modal');
+    screens.pauseModal = document.getElementById('pause-modal');
 
     // Cache UI Controls
+    ui.menuBtn = document.getElementById('menu-btn');
+    ui.closePauseBtn = document.getElementById('close-pause-btn');
+    ui.resumeGameBtn = document.getElementById('resume-game-btn');
+    ui.restartGameBtn = document.getElementById('restart-game-btn');
+    ui.quitGameBtn = document.getElementById('quit-game-btn');
     ui.score = document.getElementById('score-display');
     ui.hearts = document.getElementById('hearts-display');
     ui.mapName = document.getElementById('map-name-badge');
@@ -563,6 +569,41 @@ function setupEventListeners() {
     ui.optBtn1.addEventListener('click', () => handleChoice(ui.optBtn1));
     ui.optBtn2.addEventListener('click', () => handleChoice(ui.optBtn2));
 
+    // In-Game Hamburger Menu / Pause Modal Listeners
+    if (ui.menuBtn) {
+        ui.menuBtn.addEventListener('click', () => {
+            screens.pauseModal.classList.remove('hidden');
+        });
+    }
+
+    if (ui.closePauseBtn) {
+        ui.closePauseBtn.addEventListener('click', () => {
+            screens.pauseModal.classList.add('hidden');
+        });
+    }
+
+    if (ui.resumeGameBtn) {
+        ui.resumeGameBtn.addEventListener('click', () => {
+            screens.pauseModal.classList.add('hidden');
+        });
+    }
+
+    if (ui.restartGameBtn) {
+        ui.restartGameBtn.addEventListener('click', () => {
+            screens.pauseModal.classList.add('hidden');
+            screens.knowledgeModal.classList.add('hidden');
+            startGame(currentMap);
+        });
+    }
+
+    if (ui.quitGameBtn) {
+        ui.quitGameBtn.addEventListener('click', () => {
+            screens.pauseModal.classList.add('hidden');
+            screens.knowledgeModal.classList.add('hidden');
+            showScreen('mainMenu');
+        });
+    }
+
     // Modal Continue
     ui.capsuleContinueBtn.addEventListener('click', () => {
         screens.knowledgeModal.classList.add('hidden');
@@ -598,7 +639,7 @@ function setupEventListeners() {
 
 function showScreen(screenKey) {
     Object.values(screens).forEach(scr => {
-        if (scr && scr !== screens.knowledgeModal) {
+        if (scr && scr !== screens.knowledgeModal && scr !== screens.pauseModal) {
             scr.classList.add('hidden');
         }
     });
